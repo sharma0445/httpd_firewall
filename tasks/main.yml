@@ -1,0 +1,6 @@
+---
+# tasks file for /etc/ansible/roles/httpd_firewall
+
+- import_tasks: apache.yaml
+- import_tasks: fire.yaml
+- import_tasks: config.yaml

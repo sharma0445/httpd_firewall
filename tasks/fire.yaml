@@ -1,0 +1,27 @@
+---
+- name: Install firewalld
+  yum:
+    name: firewalld
+    state: latest
+- name: start firewalld
+  service:
+    name: firewalld
+    state: started
+    enabled: yes
+  become: yes
+  tags:
+    - fire_tag
+- name: enable 80
+  firewalld:
+    zone: public
+    port: 80/tcp
+    permanent: true
+    state: enabled
+  become: yes
+  tags:
+    - port_tag
+- name: Reload the Server Configuration
+  systemd:
+    name: firewalld
+    state: reloaded
+

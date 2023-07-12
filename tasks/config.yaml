@@ -1,0 +1,7 @@
+    - name: Copy the Index file to Apache directory
+      copy:
+        src: files/index.html
+        dest: /var/www/html/
+      tags:
+      - copy_tag
+

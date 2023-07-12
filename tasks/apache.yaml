@@ -1,0 +1,14 @@
+---
+- name: Install Apache Packages
+  yum:
+    name: httpd
+    state: present
+  tags:
+  - install_tag
+- name: Start Apache service
+  service:
+    name: httpd
+    state: started
+  tags:
+  - serv_tag
+
